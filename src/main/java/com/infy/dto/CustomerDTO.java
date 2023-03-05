@@ -10,8 +10,8 @@ import java.time.LocalDate;
 
 public class CustomerDTO {
     private Integer customerId;
-    @Email(message = "{customer.emailId.invalid}")
-    @NotNull(message = "customer.emailId.absent")
+    @Email(message = "{customer.emailid.invalid}")
+    @NotNull(message = "customer.emailid.absent")
     private String emailId;
     @NotNull(message = "{customer.name.absent}")
     @Pattern(regexp = "[A-Za-z]+([A-Za-z]+)*", message = "{customer.name.invalid}")

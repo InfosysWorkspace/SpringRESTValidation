@@ -1,5 +1,6 @@
 package com.infy.entity;
 
+import com.infy.dto.AddressDTO;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -16,7 +17,7 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", unique = true)
-    private AddressDTO addressDTO;
+    private Address address;
 
     public Integer getCustomerId() {
         return this.customerId;
@@ -50,12 +51,12 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public AddressDTO getAddressDTO() {
-        return this.addressDTO;
+    public Address getAddress() {
+        return this.address;
     }
 
-    public void setAddressDTO(final AddressDTO addressDTO) {
-        this.addressDTO = addressDTO;
+    public void setAddress(final Address address) {
+        this.address = address;
     }
 
     @Override
@@ -65,7 +66,7 @@ public class Customer {
                 ", name='" + name + '\'' +
                 ", emailId='" + emailId + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", addressDTO=" + addressDTO +
+                ", addressDTO=" + address +
                 '}';
     }
 
@@ -74,11 +75,14 @@ public class Customer {
         if (this == o) return true;
         if (null == o || this.getClass() != o.getClass()) return false;
         final Customer customer = (Customer) o;
-        return this.customerId.equals(customer.customerId) && this.name.equals(customer.name) && this.emailId.equals(customer.emailId) && this.dateOfBirth.equals(customer.dateOfBirth) && this.addressDTO.equals(customer.addressDTO);
+        return this.customerId.equals(customer.customerId) && this.name.equals(customer.name) && this.emailId.equals(customer.emailId) && this.dateOfBirth.equals(customer.dateOfBirth) && this.address.equals(customer.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.customerId, this.name, this.emailId, this.dateOfBirth, this.addressDTO);
+        return Objects.hash(this.customerId, this.name, this.emailId, this.dateOfBirth, this.address);
     }
+
+
+
 }

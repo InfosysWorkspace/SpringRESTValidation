@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class AddressDTO {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer addressId;
@@ -52,7 +52,7 @@ public class AddressDTO {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (null == o || this.getClass() != o.getClass()) return false;
-        final AddressDTO that = (AddressDTO) o;
+        final Address that = (Address) o;
         return this.addressId.equals(that.addressId) && this.street.equals(that.street) && this.city.equals(that.city);
     }
 
